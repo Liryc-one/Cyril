@@ -1,20 +1,40 @@
-// Wait for the DOM to fully load
-document.addEventListener("DOMContentLoaded", () => {
-  const sections = document.querySelectorAll("section, .project");
+const typewriterElement = document.getElementById('typewriter');
+const cursorElement = document.querySelector('.cursor');
 
-  const revealOnScroll = () => {
-    const triggerBottom = window.innerHeight * 0.9;
+const dynamicTexts = [
+  "Web developer",
+  "Blockchain enthusiast"
+];
 
-    sections.forEach(el => {
-      const elementTop = el.getBoundingClientRect().top;
+let textIndex = 0;
+let charIndex = 0;
+let typingSpeed = 60;
+let erasingSpeed = 30;
+let delayBetweenTexts = 1800;
 
-      if (elementTop < triggerBottom) {
-        el.classList.add("show");
-      }
-    });
-  };
+const staticPrefix = "Hi, I'm Cyril a ";
 
-  // Run once and also on scroll
-  revealOnScroll();
-  window.addEventListener("scroll", revealOnScroll);
+function type() {
+  if (charIndex < dynamicTexts[textIndex].length) {
+    typewriterElement.textContent = staticPrefix + dynamicTexts[textIndex].substring(0, charIndex + 1);
+    charIndex++;
+    setTimeout(type, typingSpeed);
+  } else {
+    setTimeout(erase, delayBetweenTexts);
+  }
+}
+
+function erase() {
+  if (charIndex > 0) {
+    typewriterElement.textContent = staticPrefix + dynamicTexts[textIndex].substring(0, charIndex - 1);
+    charIndex--;
+    setTimeout(erase, erasingSpeed);
+  } else {
+    textIndex = (textIndex + 1) % dynamicTexts.length;
+    setTimeout(type, typingSpeed);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  setTimeout(type, 500);
 });
