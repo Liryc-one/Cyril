@@ -1,74 +1,159 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cyril- Welcome to my world</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet"
+  href="style.css" />
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    rel="stylesheet"
+  />
 </head>
 <body>
   <header>
-    <nav>
-      <h1><strong>CEO</strong></h1>
-<ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#hobbies">Hobbies</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>  <section id="about">
-    <h2>About Me</h2>
-        <p><strong>HELLO!</strong></p>
-   <p> I'm Cyril-Elvis, a web developer passionate about building clean, user-friendly, and innovative digital experiences. Welcome to my portfolio!</p>
-  </section>  <section id="projects">
-    <h2>Projects</h2><div class="project">
-  <h3>Di-vidend – DeFi Savings Platform</h3>
-  <p>A professional DeFi savings platform with wallet integration, transaction tracking, and more.</p>
-  <a href="" target="_blank" class="btn">View Live</a>
-</div>
+    <div class="container hero">
+      <h1>
+        <span id="typewriter"></span>
+        <span class="cursor">|</span>
 
-<div class="project">
-  <h3>MovieBot</h3>
-  <p>Movie recommendation chatbot using the TMDB API. Beautiful UI and functional search.</p>
-  <a href="https://moviebot-ai.netlify.app/" target="_blank" class="btn">View Live</a>
-</div>
-
-<div class="project">
-  <h3>Fios – Dictionary App</h3>
-  <p>Minimalist dictionary web app for word definitions and meanings. Fast and responsive.</p>
-  <a href="https://fios-io.netlify.app/" target="_blank" class="btn">View Live</a>
-</div>
-
-<div class="project">
-  <h3>Wanderium- Travel Recommendation Website</h3>
-  <p>Find top places to visit in any country, complete with images and historical info.</p>
-  <a href="https://wanderium.netlify.app/" target="_blank" class="btn">View Live</a>
-</div>
-
-  <section id="hobbies">
-  <h2>Hobbies</h2>
-  <p>
-    When I’m not coding, I enjoy diving deep into the world of blockchain and DeFi, exploring how decentralized finance can change the future of money. I love experimenting with new APIs and building creative projects that challenge my skills. 
-    <p>Music is an essential part of my creativity —I find inspiration in Afrobeats and rap while working or relaxing. 
-    <p>Additionally, I express my creativity through digital art, often combining tech and visuals to produce unique pieces.</p>
-  </p>
-  <p>
-    Outside the digital world, I enjoy basketball and playing volleyball, which helps me recharge and stay inspired for my coding journey.
-  </p>
-</section>
-      <!-- You can add or remove hobbies here -->
-    </ul>
-  </section>  <section id="contact">
-    <h2>Contact</h2>
-    <p>You can reach me via the platforms below:</p>
-    <div class="social-links">
-      <a href="https://twitter.com/Cyril.sui" target="_blank"><i class="fab fa-twitter"></i></a>
-      <a href="https://linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </h1>
+      <a href="Resume.pdf" download class="btn-download" aria-label="Download Portfolio">Download Portfolio</a>
     </div>
-  </section>  <footer>
-    <p>© 2025 Cyril. All rights reserved.</p>
+  </header>
+
+  <main class="container">
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+      <img src="me.jpg" alt="Cyril's photo" class="profile-photo" />
+        <p>Hi,</p> I’m <strong>Cyril</strong>— a passionate web developer and blockchain enthusiast with a growing expertise in building modern web applications and decentralized solutions. I enjoy creating sleek, responsive user interfaces, exploring smart contract development (especially on the Sui blockchain), and solving real-world problems through code. I’m always learning, always building, and always pushing the boundaries of what’s possible in Web3.</p>
+      </p>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills-grid">
+        <div class="skill">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" />
+          <span>HTML5</span>
+        </div>
+        <div class="skill">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" />
+          <span>CSS3</span>
+        </div>
+        <div class="skill">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
+          <span>JavaScript</span>
+        </div>
+        <div class="skill">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" />
+          <span>React</span>
+        </div>
+        <div class="skill">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" />
+          <span>Node.js</span>
+        </div>
+                <div class="skill">
+          <img src="move.jpg" alt=Move />
+          <span>Move- Sui</span>
+        </div>
+       
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="project">
+        <h3>
+          <a href="https://fios-io.netlify.app/" target="_blank" rel="noopener noreferrer">
+            Fios.io
+          </a>
+        </h3>
+        <p>A dictionary web app that  
+        utilises API to fetch words .</p>
+        <div class="project-skills">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" title="JavaScript" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" title="React" />
+ <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" />
+        </div>
+      </div>
+
+      <div class="project">
+        <h3>
+          <a href="https://moviebot-ai.netlify.app/" target="_blank" rel="noopener noreferrer">
+            MovieBot AI
+          </a>
+        </h3>
+        <p>AI-powered movie recommendation chatbot with real-time suggestions.</p>
+        <div class="project-skills">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" title="JavaScript" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" title="Node.js" />
+        </div>
+                <h3>
+          <a href="https://wanderium.netlify.app/" target="_blank" rel="noopener noreferrer">
+            Wanderium
+          </a>
+        </h3>
+        <p>A travel recommendation website for travel enthusiasts.</p>
+        <div class="project-skills">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" title="JavaScript" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" />
+           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" />
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section id="hobbies">
+      <h2>Hobbies</h2>
+      <ul class="hobbies-list">
+        <li><i class="fas fa-basketball-ball"></i> Basketball</li>
+        <li><i class="fas fa-volleyball-ball"></i> Volleyball</li>
+        <li><i class="fas fa-video"></i> Content Creation</li>
+        <li><i class="fas fa-laptop-code"></i> Vibe Coding</li>
+      </ul>
+    </section>
+    <section id="projects-in-progress">
+  <h2>Projects in Progress</h2>
+  <div class="project">
+    <h3>SuiScholars</h3>
+    <p>An educational Web3 platform on the Sui blockchain to reward student learning and participation through NFTs and on-chain credentials.</p>
+    <div class="project-skills">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" title="JavaScript" />
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" title="React" />
+      <img src="move.jpg" alt="Move" title="Move (via Sui)" />
+    </div>
+  </div>
+
+  <div class="project">
+    <h3>Di-vidend</h3>
+    <p>A DeFi savings dApp that enables users to earn yield on their crypto using automated strategies on the Sui blockchain.</p>
+    <div class="project-skills">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" title="JavaScript" />
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" title="React" />
+      <img src="move.jpg" alt="Move" title="Move (via Sui)" />
+    </div>
+  </div>
+</section>
+  </main>
+
+  <footer>
+    <h1> Feel free to reach me</h1>
+    <div class="container footer-content">
+      <a href="mailto:cyrilokohceo@gmail.com" aria-label="Email">
+        <i class="fas fa-envelope"></i>
+      </a>
+      <a href="https://github.com/Liryc-one" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://twitter.com/Liryc_2" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </div>
   </footer>
+
+  <script src="script.js"></script>
 </body>
-  </html>
+        </html>
