@@ -1,40 +1,81 @@
-const typewriterElement = document.getElementById('typewriter');
-const cursorElement = document.querySelector('.cursor');
+// Loader timeout
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.querySelector('.loader').classList.add('hidden');
+    document.getElementById('main-content').classList.remove('hidden');
+    typeWriter();
+    revealSections();
+  }, 1000);
+});
 
-const dynamicTexts = [
-  "Web developer",
-  "Blockchain enthusiast"
+// Typewriter animation
+const txts = [
+  "Hi, I'm Cyril-Elvis, a web developer.",
+  "Blockchain enthusiast based on the Sui chain.",
+  "Network and Cybersecurity Geek.",
+  "Also, a passionate Hooper 🏀"
 ];
 
-let textIndex = 0;
-let charIndex = 0;
-let typingSpeed = 60;
-let erasingSpeed = 30;
-let delayBetweenTexts = 1800;
+let i = 0
+let j = 0;
+let currentTxt = [];
+let isDeleting = false;
+let isEnd = false;
 
-const staticPrefix = "Hi, I'm Cyril a ";
+function typeWriter() {
+  const display = document.getElementById('typewriter');
+  isEnd = false;
+  display.innerHTML = currentTxt.join("");
 
-function type() {
-  if (charIndex < dynamicTexts[textIndex].length) {
-    typewriterElement.textContent = staticPrefix + dynamicTexts[textIndex].substring(0, charIndex + 1);
-    charIndex++;
-    setTimeout(type, typingSpeed);
-  } else {
-    setTimeout(erase, delayBetweenTexts);
+  if (i < txts.length) {
+    if (!isDeleting && j <= txts[i].length) {
+      currentTxt.push(txts[i][j]);
+      j++;
+      display.innerHTML = currentTxt.join("");
+    }
+
+    if (isDeleting && j > 0) {
+      currentTxt.pop();
+      j--;
+      display.innerHTML = currentTxt.join("");
+    }
+
+    if (j === txts[i].length) {
+      isEnd = true;
+      isDeleting = true;
+      setTimeout(typeWriter, 2000);
+      return;
+    }
+
+    if (isDeleting && j === 0) {
+      currentTxt = [];
+      isDeleting = false;
+      i++;
+      if (i >= txts.length) i = 0;
+    }
+
+    setTimeout(typeWriter, isEnd ? 200 : 100);
   }
 }
 
-function erase() {
-  if (charIndex > 0) {
-    typewriterElement.textContent = staticPrefix + dynamicTexts[textIndex].substring(0, charIndex - 1);
-    charIndex--;
-    setTimeout(erase, erasingSpeed);
-  } else {
-    textIndex = (textIndex + 1) % dynamicTexts.length;
-    setTimeout(type, typingSpeed);
-  }
+// Scroll reveal effect
+function revealSections() {
+  const sections = document.querySelectorAll("section");
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  sections.forEach(sec => observer.observe(sec));
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  setTimeout(type, 500);
+// Back to top button toggle
+const backToTop = document.getElementById('back-to-top');
+window.addEventListener('scroll', () => {
+  backToTop.style.display = window.scrollY > 400 ? 'block' : 'none';
 });
