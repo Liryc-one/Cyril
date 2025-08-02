@@ -1,9 +1,12 @@
+/* =========================
+   BASE THEME & VARIABLES
+========================= */
 :root {
   --bg-dark: #0d0d0d;
   --bg-medium: #1a1a1a;
   --bg-light: #262626;
-  --text-light: silver;
-  --accent: #999;
+  --text-light: #ccc;
+  --accent: #888;
   --font: 'Courier New', monospace;
 }
 
@@ -11,35 +14,33 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scroll-behavior: smooth;
 }
 
-body {
+html, body {
+  font-family: var(--font);
   background-color: var(--bg-dark);
   color: var(--text-light);
-  font-family: var(--font);
+  scroll-behavior: smooth;
   line-height: 1.6;
   padding: 1rem;
-  position: relative;
+  overflow-x: hidden;
 }
 
-.hidden {
-  display: none;
+/* =========================
+   GENERAL
+========================= */
+h1, h2, h3 {
+  margin-bottom: 1rem;
+  color: var(--text-light);
 }
 
-.loader {
-  text-align: center;
-  margin-top: 30vh;
-  color: var(--accent);
-}
-
-h1, h2 {
-  margin: 1rem 0;
+p, li {
+  color: var(--text-light);
 }
 
 section {
+  margin-bottom: 2rem;
   padding: 2rem 1rem;
-  margin-bottom: 1.5rem;
   border-radius: 8px;
   opacity: 0;
   transform: translateY(20px);
@@ -51,43 +52,38 @@ section.visible {
   transform: translateY(0);
 }
 
+/* =========================
+   INTRO & TYPEWRITER
+========================= */
 .intro {
   background-color: var(--bg-dark);
+  text-align: center;
 }
+
 .emoji {
   font-size: 4rem;
-  text-align: center;
-  margin-bottom: 0.5rem;
   animation: float 3s ease-in-out infinite;
   filter: brightness(0.85);
+  margin-bottom: 0.5rem;
 }
 
 @keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
 
-
-.about {
+/* =========================
+   ABOUT, HOBBIES, STARTUP
+========================= */
+.about, .hobbies, .startup {
   background-color: var(--bg-medium);
 }
 
+/* =========================
+   PROJECTS
+========================= */
 .projects {
   background-color: var(--bg-light);
-}
-
-.hobbies {
-  background-color: var(--bg-medium);
-}
-
-footer {
-  background-color: var(--bg-dark);
-  border-top: 1px solid var(--accent);
-  padding-top: 1rem;
-  text-align: center;
 }
 
 .project-list {
@@ -98,99 +94,36 @@ footer {
 .project {
   padding-left: 1rem;
   border-left: 2px solid var(--accent);
-  transition: transform 0.3s ease, background 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .project:hover {
   transform: scale(1.02);
-  background-color: rgba(255, 255, 255, 0.03);
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.project .tools {
+  margin-top: 0.5rem;
 }
 
 .project .tools img {
   width: 24px;
-  margin-right: 10px;
-  filter: grayscale(100%) brightness(0.85);
+  height: 24px;
+  margin-right: 8px;
+  filter: grayscale(100%) brightness(0.9);
   vertical-align: middle;
 }
 
-a {
-  color: var(--text-light);
-  text-decoration: underline;
-  display: inline-block;
-  margin-top: 0.5rem;
-}
-
-.socials img {
-  width: 24px;
-  margin: 0 10px;
-  filter: grayscale(100%) brightness(4);
-  transition: transform 0.2s ease;
-}
-
-.socials img:hover {
-  transform: scale(1.2);
-}
-
-.hire-btn {
-  margin-top: 1rem;
-  display: inline-block;
-  border: 1px solid var(--accent);
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-  color: var(--text-light);
-  transition: background 0.3s ease;
-}
-
-.hire-btn:hover {
-  background-color: var(--accent);
-  color: var(--bg-dark);
-}
-
-/* Back to top arrow */
-#back-to-top {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: var(--accent);
-  color: var(--bg-dark);
-  padding: 0.5rem 0.7rem;
-  border-radius: 50%;
-  font-size: 20px;
-  cursor: pointer;
-  z-index: 100;
-  display: none;
-  transition: background 0.3s ease;
-}
-
-#back-to-top:hover {
-  background-color: var(--text-light);
-}
-
-@media (max-width: 600px) {
-  .project-list {
-    grid-template-columns: 1fr;
-  }
-
-  #back-to-top {
-    font-size: 18px;
-    padding: 0.5rem 0.6rem;
-  }
-}
+/* =========================
+   SKILLS SECTION
+========================= */
 .skills {
   background-color: var(--bg-light);
-  padding: 2rem 1rem;
-  border-radius: 8px;
-  margin-bottom: 2rem;
-}
-
-.skill-category {
-  margin-top: 1rem;
 }
 
 .skill-category h3 {
-  margin: 1rem 0;
+  margin-bottom: 0.5rem;
   color: var(--accent);
-  font-size: 1.1rem;
 }
 
 .skill-grid {
@@ -198,10 +131,12 @@ a {
   flex-wrap: wrap;
   gap: 1rem;
   align-items: center;
+  margin-bottom: 1.5rem;
 }
 
 .skill-grid img {
-  width: 40px;
+  width: 36px;
+  height: 36px;
   filter: grayscale(100%) brightness(0.85);
   transition: transform 0.2s ease;
 }
@@ -210,51 +145,27 @@ a {
   transform: scale(1.1);
 }
 
-@media (max-width: 600px) {
-  .skill-grid {
-    justify-content: center;
-  }
-
-  .skill-grid img {
-    width: 32px;
-  }
-}.dev-setup {
+/* =========================
+   DEV SETUP
+========================= */
+.dev-setup {
   background-color: var(--bg-medium);
-  color: var(--text-light);
-  border-radius: 8px;
-  padding: 2rem 1rem;
-  font-family: 'Courier New', monospace;
-  margin-bottom: 2rem;
-  overflow-x: auto;
+  font-family: var(--font);
 }
 
 .dev-setup pre {
   white-space: pre-wrap;
-  word-break: break-word;
-  line-height: 1.6;
   background-color: rgba(255, 255, 255, 0.02);
   padding: 1rem;
   border-left: 2px solid var(--accent);
-  border-radius: 4px;
-}
-.startup {
-  background-color: var(--bg-light);
-  color: var(--text-light);
-  border-radius: 8px;
-  padding: 2rem 1rem;
-  margin-bottom: 2rem;
+  border-radius: 6px;
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
 }
 
-.startup h3 {
-  margin-top: 1rem;
-  color: var(--accent);
-}
-
-.bio {
-  margin-bottom: 1rem;
-  font-style: italic;
-}
-
+/* =========================
+   STARTUP SECTION
+========================= */
 .cli-list {
   list-style: none;
   padding-left: 1rem;
@@ -263,19 +174,18 @@ a {
 
 .cli-list li {
   margin-bottom: 0.5rem;
-  font-family: var(--font);
 }
 
 .tool-icons {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-top: 0.5rem;
-  align-items: center;
+  margin: 0.5rem 0;
 }
 
 .tool-icons img {
-  width: 40px;
+  width: 36px;
+  height: 36px;
   filter: grayscale(100%) brightness(0.85);
   transition: transform 0.2s ease;
 }
@@ -284,11 +194,30 @@ a {
   transform: scale(1.1);
 }
 
-.chain {
-  margin-top: 1rem;
-  font-family: var(--font);
+/* =========================
+   PROGRESS BAR & CIRCLE
+========================= */
+.progress-bar {
+  background-color: #1a1a1a;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  height: 16px;
+  overflow: hidden;
+  margin: 0.5rem 0;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: var(--text-light);
+  transition: width 0.4s ease;
+}
+
+.progress-label {
+  font-size: 0.9rem;
   color: var(--accent);
 }
+
+/* Circular progress */
 .progress-circle {
   width: 100px;
   margin: 1rem auto;
@@ -310,7 +239,6 @@ a {
   stroke: var(--text-light);
   stroke-width: 2.8;
   stroke-linecap: round;
-  transition: stroke-dasharray 0.6s ease;
 }
 
 .percentage {
@@ -319,3 +247,82 @@ a {
   text-anchor: middle;
   font-family: var(--font);
 }
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+  background-color: var(--bg-dark);
+  border-top: 1px solid var(--accent);
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.socials img {
+  width: 24px;
+  height: 24px;
+  margin: 0 8px;
+  filter: grayscale(100%) brightness(1);
+  transition: transform 0.2s ease;
+}
+
+.socials img:hover {
+  transform: scale(1.2);
+}
+
+.hire-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  border: 1px solid var(--accent);
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: var(--text-light);
+  transition: background 0.3s ease;
+}
+
+.hire-btn:hover {
+  background-color: var(--accent);
+  color: var(--bg-dark);
+}
+
+/* =========================
+   BACK TO TOP
+========================= */
+#back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--accent);
+  color: var(--bg-dark);
+  padding: 0.6rem 0.75rem;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 999;
+  display: none;
+  transition: background 0.3s ease;
+}
+
+#back-to-top:hover {
+  background-color: var(--text-light);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .skill-grid,
+  .tool-icons {
+    justify-content: center;
+  }
+
+  .project-list {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-grid img,
+  .tool-icons img {
+    width: 30px;
+    height: 30px;
+  }
+  }
